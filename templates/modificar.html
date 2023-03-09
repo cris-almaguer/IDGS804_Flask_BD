@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+{% from '_macros.html' import render_field %}
+<div class="container">
+    <div class="row">
+        <form action="/modificar" name="sent" id="form1" method="post">
+            {{ form.csrf_token }}
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="row control-group" style="display: none;">
+                <div class="form-group col-xs-12 float-label-form-group controls">
+                    {{ render_field(form.id, class="form-control") }}
+                </div>
+            </div>
+            <div class="row control-group">
+                <div class="form-group col-xs-12 float-label-form-group controls">
+                    {{ render_field(form.nombre, class="form-control") }}
+                </div>
+            </div>
+            <div class="row control-group">
+                <div class="form-group col-xs-12 float-label-form-group controls">
+                    {{ render_field(form.apaterno, class="form-control") }}
+                </div>
+            </div>
+            <div class="row control-group">
+                <div class="form-group col-xs-12 float-label-form-group controls">
+                    {{ render_field(form.email, class="form-control") }}
+                </div>
+            </div>
+            <a href="abcompleto" class="btn btn-danger"><i class="icon-arrow-left icon-white"></i>&nbsp;Regresar</a>
+            <button type="submit" id="reg_alum" name="modificar" class="btn btn-success btn-primary"><i class="icon-pencil icon-white"></i>&nbsp;Modificar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

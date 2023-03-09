@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% from '_macros.html' import render_field %}
+<div class="container">
+    <a href="/" class="btn btn-success" style="border-radius: 20px;"><i class="icon-check    icon-white"></i>&nbsp;Agregar</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.apaterno }}</td>
+                <td>{{ alumno.email }}</td>
+                <td>
+                    <a href="modificar?id={{alumno.id}}">
+                        <button class="btn btn-warning" style="border-radius: 20px;"><i
+                                class="icon-pencil icon-white"></i>&nbsp;Modificar</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="eliminar?id={{alumno.id}}">
+                        <button class="btn btn-danger" style="border-radius: 20px;"><i
+                                class="icon-remove icon-white"></i>&nbsp;Eliminar</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
